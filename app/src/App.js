@@ -1,6 +1,6 @@
 import Header from "./lib/components/Header/Header";
 import TechStackInput from "./lib/components/TechStack/TechStackInput";
-import TechStacks from "./lib/components/TechStack/TechStacks";
+import TechStacks from "./lib/components/TechStack/TechStacks/TechStacks";
 
 const App = () => {
   return (
