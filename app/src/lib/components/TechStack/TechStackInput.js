@@ -11,8 +11,8 @@ const Container = styled.div`
   justify-content: space-between;
   height: ${({ headerHeight }) => headerHeight ?? "100px"};
   width: ${({ headerWidth }) => headerWidth ?? "100%"};
-  background-color: ${({ headerBackgroundColor }) =>
-    headerBackgroundColor ?? "purple"};
+  /* background-color: ${({ headerBackgroundColor }) =>
+    headerBackgroundColor ?? "purple"}; */
 `;
 
 const Input = styled.input`
@@ -31,8 +31,8 @@ const Modal = styled.div`
   top: 120%;
   left: 10%;
   z-index: 1011;
-  width: 80%;
-  height: 400px;
+  /* width: 80%; */
+  /* height: 400px; */
   padding: 16px;
   background-color: white;
   border-radius: 12px;
@@ -54,10 +54,14 @@ const TechStackEachBox = styled.div`
   flex-direction: column;
   align-items: center;
   width: 110px;
-  height: 140px;
   padding-top: 10px;
   border: 1px solid black;
   border-radius: 4px;
+`;
+
+const TechStackName = styled.span`
+  margin: 8px 0px;
+  font-weight: bold;
 `;
 
 const TechStackInput = ({}) => {
@@ -83,9 +87,10 @@ const TechStackInput = ({}) => {
             <TechStackEachBox>
               <Icon
                 icon={`simple-icons:${inputValue}`}
-                color={"green"}
+                color={"black"}
                 fontSize={"80px"}
               />
+              <TechStackName>{inputValue}</TechStackName>
             </TechStackEachBox>
           </Modal>
           <ModalBackground onClick={() => setIsFocus(false)} />
