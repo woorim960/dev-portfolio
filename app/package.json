@@ -1,0 +1,73 @@
+{
+  "name": "@woorim960/dev-portfolio",
+  "version": "0.1.3",
+  "module": "dev-portfolio/index.js",
+  "main": "dev-portfolio/index.js",
+  "description": "웹 포트폴리오를 쉽고 빠르게 개발할 수 있도록 도와주는 오픈 소스 라이브러리",
+  "author": { 
+    "name": "woorim960", 
+    "email": "woorimprog@gmail.com", 
+    "url": "https://github.com/woorim960" 
+  },
+  "contributors": [
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/woorim960/dev-portfolio.git"
+  },
+  "bugs": {
+    "url": "https://github.com/woorim960/dev-portfolio.git"
+  },
+  "licenses": [{
+    "type": "MIT",
+    "url": "http://www.opensource.org/licenses/MIT" 
+  }],
+  "keywords": [
+    "portfolio",
+    "dev",
+    "dev-fortfolio",
+    "header"
+  ],
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.16.2",
+    "@testing-library/react": "^12.1.4",
+    "@testing-library/user-event": "^13.5.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-icons": "^4.3.1",
+    "react-scripts": "5.0.0",
+    "styled-components": "^5.3.3",
+    "web-vitals": "^2.1.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "publish:npm": "rm -rf dev-portfolio && mkdir dev-portfolio && babel src/lib -d dev-portfolio --copy-files"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.17.6",
+    "@babel/preset-react": "^7.16.7",
+    "@iconify/react": "^3.1.4",
+    "babel-plugin-styled-components": "^2.0.6"
+  }
+}
