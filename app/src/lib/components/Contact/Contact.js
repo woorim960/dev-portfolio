@@ -21,7 +21,7 @@ const TitleContainer = styled.div`
   flex-direction: column;
 `;
 
-const Title = styled.span`
+const Title = styled.div`
   font-weight: bold;
   font-size: 18px;
 `;
@@ -78,7 +78,7 @@ const contactOptionDefault = {
 const Contact = ({ contactOption = contactOptionDefault }) => {
   const { title, subTitle, buttonText, AboutMeInfos } = contactOption;
   return (
-    <Container>
+    <Container id="Contact">
       <ContactForm>
         <TitleContainer>
           <Title>{title}</Title>

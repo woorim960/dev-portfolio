@@ -4,6 +4,8 @@ import styled from "styled-components";
 import TechStackName from "./TechStackName";
 import ProgressBarContainer from "./ProgressBar";
 
+const Container = styled.div``;
+
 const TechStack = styled.div`
   margin: ${({ margin }) => margin ?? "10px 30px"};
 `;
@@ -28,12 +30,16 @@ const techStacksDefault = [
 ];
 
 const TechStacks = ({ techStacks = techStacksDefault }) => {
-  return techStacks.map(({ nameOption, progressBarOption }) => (
-    <TechStack>
-      <TechStackName nameOption={nameOption} />
-      <ProgressBarContainer progressBarOption={progressBarOption} />
-    </TechStack>
-  ));
+  return (
+    <Container id="TechStacks">
+      {techStacks?.map(({ nameOption, progressBarOption }) => (
+        <TechStack>
+          <TechStackName nameOption={nameOption} />
+          <ProgressBarContainer progressBarOption={progressBarOption} />
+        </TechStack>
+      ))}
+    </Container>
+  );
 };
 
 export default TechStacks;

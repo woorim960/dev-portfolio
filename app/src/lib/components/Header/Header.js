@@ -33,21 +33,32 @@ const channelsDefault = [
   { name: "youtube", uriToMove: "https://", color: "#FF0000BB", size: "30px" },
 ];
 
-const sidebarOptionDefault = {
+const sideBarOptionDefault = {
+  mainTitle: "dev-portfolio",
+  items: [
+    {
+      title: "TechStacks",
+      uriToMove: "/#Tech-Stack",
+    },
+    {
+      title: "Contact",
+      uriToMove: "/#Contact",
+    },
+  ],
   styles: { size: "50px", margin: "0px 12px 0px 24px" },
 };
 
 const Header = ({
   logoOption = logoOptionDefault,
   channels = channelsDefault,
-  sidebarOption = sidebarOptionDefault,
+  sideBarOption = sideBarOptionDefault,
 }) => {
   return (
     <Container>
       <Logo logoOption={{ ...logoOptionDefault, ...logoOption }}></Logo>
       <SideContainer
         channels={channels}
-        sidebarOption={{ ...sidebarOptionDefault, ...sidebarOption }}
+        sideBarOption={{ ...sideBarOptionDefault, ...sideBarOption }}
       ></SideContainer>
     </Container>
   );
