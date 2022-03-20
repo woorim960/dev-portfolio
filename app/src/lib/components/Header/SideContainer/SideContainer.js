@@ -1,8 +1,26 @@
 import React, { useState } from "react";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 import Channels from "../../Channels/Channels";
 import { FaBars } from "../../../dependencies/react-icons/fa";
+
+const showUp = keyframes`
+  from {
+    right: -30%;
+  }
+  to {
+    right: 0%;
+  }
+`;
+
+const showOut = keyframes`
+  from {
+    right: 0%;
+  }
+  to {
+    right: -30%;
+  }
+`;
 
 const Container = styled.div`
   display: flex;
@@ -19,7 +37,8 @@ const SideBarIcon = styled.div`
 const SideBar = styled.div`
   position: absolute;
   top: 0%;
-  right: 0%;
+  right: ${({ isClickedSideBarIcon }) =>
+    isClickedSideBarIcon ? "0%" : "-30%"};
   z-index: 1011;
   width: 30%;
   max-width: 280px;
@@ -28,9 +47,13 @@ const SideBar = styled.div`
   background-color: white;
   border-top-left-radius: 4px;
   border-bottom-left-radius: 4px;
+  animation: 0.3s
+    ${({ isClickedSideBarIcon }) => (isClickedSideBarIcon ? showUp : showOut)};
 `;
 
 const SideBarBackground = styled.div`
+  display: ${({ isClickedSideBarIcon }) =>
+    isClickedSideBarIcon ? "block" : "none"};
   position: fixed;
   left: 50%;
   top: 50%;
@@ -59,6 +82,7 @@ const ItemContainer = styled.div`
 `;
 
 const Item = styled.div`
+  cursor: pointer;
   margin: ${({ margin }) => margin ?? "10px 0px"};
 `;
 
@@ -76,28 +100,27 @@ const SideContainer = ({ channels, sideBarOption }) => {
       >
         <FaBars fontSize={size} />
       </SideBarIcon>
-      {isClickedSideBarIcon && (
-        <>
-          <SideBar>
-            <MainTitle>{mainTitle}</MainTitle>
-            <Line></Line>
-            {items?.map(({ title, uriToMove }) => (
-              <ItemContainer
-                // href={uriToMove}
-                onClick={() => {
-                  setIsClickedSideBarIcon(false);
-                  document
-                    .getElementById(title)
-                    .scrollIntoView({ behavior: "smooth" });
-                }}
-              >
-                <Item>{title}</Item>
-              </ItemContainer>
-            ))}
-          </SideBar>
-          <SideBarBackground onClick={() => setIsClickedSideBarIcon(false)} />
-        </>
-      )}
+      <SideBar isClickedSideBarIcon={isClickedSideBarIcon}>
+        <MainTitle>{mainTitle}</MainTitle>
+        <Line></Line>
+        {items?.map(({ title, uriToMove }) => (
+          <ItemContainer
+            // href={uriToMove}
+            onClick={() => {
+              setIsClickedSideBarIcon(false);
+              document
+                .getElementById(title)
+                .scrollIntoView({ behavior: "smooth" });
+            }}
+          >
+            <Item>{title}</Item>
+          </ItemContainer>
+        ))}
+      </SideBar>
+      <SideBarBackground
+        isClickedSideBarIcon={isClickedSideBarIcon}
+        onClick={() => setIsClickedSideBarIcon(false)}
+      />
     </Container>
   );
 };
