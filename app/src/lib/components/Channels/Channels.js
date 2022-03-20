@@ -9,14 +9,14 @@ const Container = styled.div`
 `;
 
 const Channel = styled.a`
-  margin: ${({ channelMargin }) => channelMargin ?? "0px 6px 0px 6px"};
+  margin: ${({ margin }) => margin ?? "0px 6px 0px 6px"};
 `;
 
 const Channels = ({ channels }) => {
   return (
     <Container>
-      {channels?.map(({ uriToMove, name, color, size }) => (
-        <Channel href={uriToMove}>
+      {channels?.map(({ uriToMove, name, color, size, margin }) => (
+        <Channel href={uriToMove} margin={margin}>
           <Icon icon={`simple-icons:${name}`} color={color} fontSize={size} />
         </Channel>
       ))}

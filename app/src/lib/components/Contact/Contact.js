@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 
+import Channels from "../Channels/Channels";
+
 const Container = styled.div`
   display: flex;
   flex-direction: row;
@@ -59,7 +61,37 @@ const contactOptionDefault = {
   title: "안녕하세요 풀스택 개발자 박우림입니다.",
   subTitle: "저에게 관심이 생기신 분들은 아래 버튼을 눌러주세요 :D",
   buttonText: "Want to work with me?",
-  AboutMeInfos: [
+  channels: [
+    {
+      name: "github",
+      uriToMove: "https://",
+      color: "#181717BB",
+      size: "18px",
+      margin: "0px 12px 0px 0px",
+    },
+    {
+      name: "naver",
+      uriToMove: "https://",
+      color: "#47A141BB",
+      size: "18px",
+      margin: "0px 12px 0px 0px",
+    },
+    {
+      name: "facebook",
+      uriToMove: "https://",
+      color: "#1877F2BB",
+      size: "18px",
+      margin: "0px 12px 0px 0px",
+    },
+    {
+      name: "youtube",
+      uriToMove: "https://",
+      color: "#FF0000BB",
+      size: "18px",
+      margin: "0px 12px 0px 0px",
+    },
+  ],
+  aboutMeInfos: [
     {
       title: "Where I live",
       description: "Gangdong-gu, Seoul, Republic of Korea",
@@ -76,10 +108,11 @@ const contactOptionDefault = {
 };
 
 const Contact = ({ contactOption = contactOptionDefault }) => {
-  const { title, subTitle, buttonText, AboutMeInfos } = contactOption;
+  const { title, subTitle, buttonText, channels, aboutMeInfos } = contactOption;
   return (
     <Container id="Contact">
       <ContactForm>
+        <Channels channels={channels}></Channels>
         <TitleContainer>
           <Title>{title}</Title>
           <SubTitle>{subTitle}</SubTitle>
@@ -87,7 +120,7 @@ const Contact = ({ contactOption = contactOptionDefault }) => {
         <SendEmailButton>{buttonText}</SendEmailButton>
       </ContactForm>
       <AboutMe>
-        {AboutMeInfos.map(({ title, description }) => (
+        {aboutMeInfos.map(({ title, description }) => (
           <AboutMeEachContainer>
             <AboutMeTitle>{title}</AboutMeTitle>
             <AboutMeDescription>{description}</AboutMeDescription>
