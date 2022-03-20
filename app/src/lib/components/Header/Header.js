@@ -4,6 +4,9 @@ import Logo from "./Logo";
 import SideContainer from "./SideContainer/SideContainer";
 
 const Container = styled.div`
+  position: sticky;
+  top: 0;
+  z-index: 10000;
   display: flex;
   flex-direction: row;
   align-items: center;
