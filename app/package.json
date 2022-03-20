@@ -1,6 +1,6 @@
 {
   "name": "@woorim960/dev-portfolio",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "module": "dev-portfolio/index.js",
   "main": "dev-portfolio/index.js",
   "description": "웹 포트폴리오를 쉽고 빠르게 개발할 수 있도록 도와주는 오픈 소스 라이브러리",

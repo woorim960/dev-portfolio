@@ -6,7 +6,7 @@ const Container = styled.div`
   flex-direction: row;
   justify-content: space-evenly;
   background-color: whitesmoke;
-  padding: 10px 0px;
+  padding: 10px 10px;
 `;
 
 const ContactForm = styled.div`
@@ -45,7 +45,7 @@ const AboutMe = styled.div`
 `;
 
 const AboutMeEachContainer = styled.div`
-  margin: 10px 10px 10px 10px;
+  margin: 10px 0px 10px 10px;
 `;
 
 const AboutMeTitle = styled.div`
@@ -66,7 +66,7 @@ const contactOptionDefault = {
     },
     {
       title: "Give me a call",
-      description: "T. +82 (0)10 2504 2452",
+      description: "T. +82 (0)10 1234 5678",
     },
     {
       title: "Or, why don’t you email me?",
