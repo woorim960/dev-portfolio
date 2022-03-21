@@ -1,7 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 
-import Channels from "../Channels/Channels";
+import ContactForm from "./ContactForm";
+import AboutMe from "./AboutMe";
 
 const Container = styled.div`
   display: flex;
@@ -10,52 +11,6 @@ const Container = styled.div`
   background-color: whitesmoke;
   padding: 10px 10px;
 `;
-
-const ContactForm = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  max-width: 40%;
-`;
-
-const TitleContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
-
-const Title = styled.div`
-  font-weight: bold;
-  font-size: 18px;
-`;
-
-const SubTitle = styled.span``;
-
-const SendEmailButton = styled.button`
-  padding: 10px 10px;
-  margin: 10px 0px 0px 0px;
-  background-color: white;
-  border-radius: 4px;
-  border: 0.5px solid #00000033;
-  cursor: pointer;
-  &active {
-    background-color: red;
-  }
-`;
-
-const AboutMe = styled.div`
-  margin: 10px 0px;
-`;
-
-const AboutMeEachContainer = styled.div`
-  margin: 10px 0px 10px 10px;
-`;
-
-const AboutMeTitle = styled.div`
-  font-weight: bold;
-  color: #00000066;
-`;
-
-const AboutMeDescription = styled.div``;
 
 const contactOptionDefault = {
   title: "안녕하세요 풀스택 개발자 박우림입니다.",
@@ -108,25 +63,11 @@ const contactOptionDefault = {
 };
 
 const Contact = ({ contactOption = contactOptionDefault }) => {
-  const { title, subTitle, buttonText, channels, aboutMeInfos } = contactOption;
+  const { aboutMeInfos } = contactOption;
   return (
     <Container id="Contact">
-      <ContactForm>
-        <Channels channels={channels}></Channels>
-        <TitleContainer>
-          <Title>{title}</Title>
-          <SubTitle>{subTitle}</SubTitle>
-        </TitleContainer>
-        <SendEmailButton>{buttonText}</SendEmailButton>
-      </ContactForm>
-      <AboutMe>
-        {aboutMeInfos.map(({ title, description }, idx) => (
-          <AboutMeEachContainer key={idx}>
-            <AboutMeTitle>{title}</AboutMeTitle>
-            <AboutMeDescription>{description}</AboutMeDescription>
-          </AboutMeEachContainer>
-        ))}
-      </AboutMe>
+      <ContactForm contactOption={contactOption} />
+      <AboutMe aboutMeInfos={aboutMeInfos} />
     </Container>
   );
 };
