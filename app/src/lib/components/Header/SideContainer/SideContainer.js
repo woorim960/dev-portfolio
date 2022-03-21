@@ -6,7 +6,7 @@ import { FaBars } from "../../../dependencies/react-icons/fa";
 
 const showUp = keyframes`
   from {
-    right: -30%;
+    right: -40%;
   }
   to {
     right: 0%;
@@ -18,7 +18,7 @@ const showOut = keyframes`
     right: 0%;
   }
   to {
-    right: -30%;
+    right: -40%;
   }
 `;
 
@@ -38,7 +38,7 @@ const SideBar = styled.div`
   position: absolute;
   top: 0%;
   right: ${({ isClickedSideBarIcon }) =>
-    isClickedSideBarIcon ? "0%" : "-30%"};
+    isClickedSideBarIcon ? "0%" : "-40%"};
   z-index: 1011;
   width: 30%;
   max-width: 280px;
