@@ -120,8 +120,8 @@ const Contact = ({ contactOption = contactOptionDefault }) => {
         <SendEmailButton>{buttonText}</SendEmailButton>
       </ContactForm>
       <AboutMe>
-        {aboutMeInfos.map(({ title, description }) => (
-          <AboutMeEachContainer>
+        {aboutMeInfos.map(({ title, description }, idx) => (
+          <AboutMeEachContainer key={idx}>
             <AboutMeTitle>{title}</AboutMeTitle>
             <AboutMeDescription>{description}</AboutMeDescription>
           </AboutMeEachContainer>

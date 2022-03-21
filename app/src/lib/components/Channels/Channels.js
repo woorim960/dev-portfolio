@@ -15,8 +15,8 @@ const Channel = styled.a`
 const Channels = ({ channels }) => {
   return (
     <Container>
-      {channels?.map(({ uriToMove, name, color, size, margin }) => (
-        <Channel href={uriToMove} margin={margin}>
+      {channels?.map(({ uriToMove, name, color, size, margin }, idx) => (
+        <Channel key={idx} href={uriToMove} margin={margin}>
           <Icon icon={`simple-icons:${name}`} color={color} fontSize={size} />
         </Channel>
       ))}

@@ -32,8 +32,8 @@ const techStacksDefault = [
 const TechStacks = ({ techStacks = techStacksDefault }) => {
   return (
     <Container id="TechStacks">
-      {techStacks?.map(({ nameOption, progressBarOption }) => (
-        <TechStack>
+      {techStacks?.map(({ nameOption, progressBarOption }, idx) => (
+        <TechStack key={idx}>
           <TechStackName nameOption={nameOption} />
           <ProgressBarContainer progressBarOption={progressBarOption} />
         </TechStack>

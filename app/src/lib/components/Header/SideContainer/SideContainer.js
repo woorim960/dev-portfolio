@@ -99,7 +99,7 @@ const SideContainer = ({ channels, sideBarOption }) => {
             Array.from($tags)
               .filter(($tag) => $tag.id !== "Header")
               .map(($tag) => {
-                if ($tag.id) return { title: $tag.id };
+                return { title: $tag.id };
               })
           );
           setIsClickedSideBarIcon(true);
@@ -110,8 +110,9 @@ const SideContainer = ({ channels, sideBarOption }) => {
       <SideBar isClickedSideBarIcon={isClickedSideBarIcon}>
         <MainTitle>{mainTitle}</MainTitle>
         <Line></Line>
-        {sideBarItems?.map(({ title }) => (
+        {sideBarItems?.map(({ title, idx }) => (
           <ItemContainer
+            key={idx}
             onClick={() => {
               setIsClickedSideBarIcon(false);
               document
