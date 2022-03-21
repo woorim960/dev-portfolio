@@ -21,7 +21,7 @@ const Input = styled.input`
   width: 50%;
   height: 50%;
   padding: 0px 0px 0px 20px;
-  margin: 0px 0px 0px 10%;
+  margin: 0px 0px 0px 30px;
   z-index: ${({ isFocus }) => (isFocus ? 1011 : 0)};
   border-radius: 6px;
 `;
@@ -29,7 +29,7 @@ const Input = styled.input`
 const Modal = styled.div`
   position: absolute;
   top: 120%;
-  left: 10%;
+  left: 30px;
   z-index: 1011;
   /* width: 80%; */
   /* height: 400px; */
