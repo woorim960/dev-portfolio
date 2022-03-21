@@ -2,10 +2,11 @@ import React from "react";
 import styled from "styled-components";
 import { Icon } from "../../dependencies/@iconify/react";
 
-const Container = styled.div`
+const Container = styled.a`
   display: flex;
   flex-direction: row;
   align-items: center;
+  text-decoration: none;
 `;
 
 const LogoImgContainer = styled.a`
@@ -24,8 +25,8 @@ const Logo = ({ logoOption }) => {
   const { uriToMove, logoImg, title, styles } = logoOption;
   const { logoMargin, titleColor, titleSize, titleWeight } = styles;
   return (
-    <Container>
-      <LogoImgContainer href={uriToMove} logoMargin={logoMargin}>
+    <Container href={uriToMove}>
+      <LogoImgContainer logoMargin={logoMargin}>
         {logoImg ? (
           <LogoImg src={logoImg} />
         ) : (
