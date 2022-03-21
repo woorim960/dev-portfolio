@@ -38,16 +38,7 @@ const channelsDefault = [
 
 const sideBarOptionDefault = {
   mainTitle: "dev-portfolio",
-  items: [
-    {
-      title: "TechStacks",
-      uriToMove: "/#Tech-Stack",
-    },
-    {
-      title: "Contact",
-      uriToMove: "/#Contact",
-    },
-  ],
+  items: [],
   styles: { size: "50px", margin: "0px 12px 0px 24px" },
 };
 
@@ -57,7 +48,7 @@ const Header = ({
   sideBarOption = sideBarOptionDefault,
 }) => {
   return (
-    <Container>
+    <Container id="Header">
       <Logo logoOption={{ ...logoOptionDefault, ...logoOption }}></Logo>
       <SideContainer
         channels={channels}

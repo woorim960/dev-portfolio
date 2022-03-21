@@ -42,11 +42,9 @@ const SideBar = styled.div`
   z-index: 1011;
   width: 30%;
   max-width: 280px;
-  height: 100%;
   padding: 16px;
   background-color: white;
-  border-top-left-radius: 4px;
-  border-bottom-left-radius: 4px;
+  border-radius: 10px 0px 10px 10px;
   animation: 0.3s
     ${({ isClickedSideBarIcon }) => (isClickedSideBarIcon ? showUp : showOut)};
 `;
@@ -76,9 +74,6 @@ const Line = styled.hr`
 const ItemContainer = styled.div`
   color: ${({ color }) => color ?? "black"};
   text-decoration: none;
-  &hover {
-    text-decoration: underline;
-  }
 `;
 
 const Item = styled.div`
@@ -87,25 +82,36 @@ const Item = styled.div`
 `;
 
 const SideContainer = ({ channels, sideBarOption }) => {
-  const { mainTitle, items, styles } = sideBarOption;
+  let { mainTitle, items, styles } = sideBarOption;
   const { size, margin } = styles;
   const [isClickedSideBarIcon, setIsClickedSideBarIcon] = useState(false);
+  const [sideBarItems, setSideBarItems] = useState(items);
+
+  const $tags = document.querySelector("#root").childNodes;
 
   return (
     <Container>
       <Channels channels={channels}></Channels>
       <SideBarIcon
         margin={margin}
-        onClick={() => setIsClickedSideBarIcon(true)}
+        onClick={() => {
+          setSideBarItems(
+            Array.from($tags)
+              .filter(($tag) => $tag.id !== "Header")
+              .map(($tag) => {
+                if ($tag.id) return { title: $tag.id };
+              })
+          );
+          setIsClickedSideBarIcon(true);
+        }}
       >
         <FaBars fontSize={size} />
       </SideBarIcon>
       <SideBar isClickedSideBarIcon={isClickedSideBarIcon}>
         <MainTitle>{mainTitle}</MainTitle>
         <Line></Line>
-        {items?.map(({ title, uriToMove }) => (
+        {sideBarItems?.map(({ title }) => (
           <ItemContainer
-            // href={uriToMove}
             onClick={() => {
               setIsClickedSideBarIcon(false);
               document
